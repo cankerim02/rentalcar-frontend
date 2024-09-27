@@ -1,16 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+import { Car } from '../../models/car';
+import { HttpClient } from '@angular/common/http';
+import { CarResponseModel } from '../../models/carResponseModel';
 
 @Component({
   selector: 'app-car',
   templateUrl: './car.component.html',
-  styleUrl: './car.component.css'
+  styleUrl: './car.component.css',
 })
+export class CarComponent implements OnInit {
+  cars: Car[] = [];
+  apiUrl = 'https://localhost:44384/api/Cars/getcardetails';
 
-export class CarComponent  implements OnInit{
 
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
-    console.log("init çalıştı")
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.httpClient
+      .get<CarResponseModel>(this.apiUrl)
+      .subscribe((response) => {
+        this.cars = response.data
+      });
   }
 }

@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ColourComponent } from './components/colour/colour.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { BrandComponent } from './components/brand/brand.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -23,6 +24,7 @@ import { BrandComponent } from './components/brand/brand.component';
   imports: [
     BrowserModule, // Tarayıcı modülü
     AppRoutingModule,
+    HttpClientModule
 ],
   providers: [],
   bootstrap: [AppComponent] // Başlangıç bileşeni
