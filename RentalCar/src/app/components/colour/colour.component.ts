@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Colour } from '../../models/colour';
-import { ColourResponseModel } from '../../models/colourResponseModel';
+import { listResponseModel } from '../../models/listResponseModel';
 
 @Component({
   selector: 'app-colour',
@@ -20,7 +20,7 @@ export class ColourComponent implements OnInit {
 
   getColours() {
     this.httpClient
-      .get<ColourResponseModel>(this.apiUrl)
+      .get<listResponseModel<Colour>>(this.apiUrl)
       .subscribe((response) => {
         this.colours = response.data;
       });
