@@ -1,7 +1,6 @@
-import { Car } from "./car";
+import { Car } from './car';
+import { ResponseModel } from './responseModel';
 
-export interface CarResponseModel{
-  data:Car[],
-  success:boolean
-  message:"",
+export interface CarResponseModel extends ResponseModel {
+  data: Car[];
 }

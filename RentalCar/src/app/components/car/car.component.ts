@@ -16,10 +16,10 @@ export class CarComponent implements OnInit {
   constructor(private httpClient: HttpClient) {}
 
   ngOnInit(): void {
-    this.getProducts();
+    this.getCars();
   }
 
-  getProducts() {
+  getCars() {
     this.httpClient
       .get<CarResponseModel>(this.apiUrl)
       .subscribe((response) => {

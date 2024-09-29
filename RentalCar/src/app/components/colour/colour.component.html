@@ -1,1 +1,14 @@
-<p>colour works!</p>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Renk</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let colour of colours">
+        <td>{{ colour.colourName }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
