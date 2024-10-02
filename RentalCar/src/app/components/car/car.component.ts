@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Car } from '../../models/car';
-import { HttpClient } from '@angular/common/http';
 import { listResponseModel } from '../../models/listResponseModel';
+import { CarService } from '../../services/car.service';
+import { response } from 'express';
 
 @Component({
   selector: 'app-car',
@@ -10,20 +11,16 @@ import { listResponseModel } from '../../models/listResponseModel';
 })
 export class CarComponent implements OnInit {
   cars: Car[] = [];
-  apiUrl = 'https://localhost:44384/api/Cars/getcardetails';
 
-
-  constructor(private httpClient: HttpClient) {}
+  constructor(private carService: CarService) {}
 
   ngOnInit(): void {
     this.getCars();
   }
 
   getCars() {
-    this.httpClient
-      .get<listResponseModel<Car>>(this.apiUrl)
-      .subscribe((response) => {
-        this.cars = response.data
-      });
+    this.carService.getCars().subscribe(response => {
+      this.cars = response.data;
+    });
   }
 }
