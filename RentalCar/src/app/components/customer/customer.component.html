@@ -1,14 +1,7 @@
-<div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Müşteriler</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let customer of customers">
-        <td>{{customer.companyName}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<h5>Müşteriler</h5>
+<ul class="list-group">
+  <li *ngFor="let customer of customers"
+  class="list-group-item">
+    {{customer.companyName}}
+  </li>
+</ul>

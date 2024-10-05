@@ -5,5 +5,6 @@ export interface Car {
   carName:string,
   colourName:string,
   brandName:string,
+  modelYear:number,
   dailyPrice:number
 }
