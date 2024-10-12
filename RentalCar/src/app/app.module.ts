@@ -8,6 +8,7 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './components/nav/nav.component';
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { NavComponent } from './components/nav/nav.component';
     CustomerComponent,
     BrandComponent,
     NavComponent,
+    CarDetailComponent
   ],
   imports: [
     BrowserModule,

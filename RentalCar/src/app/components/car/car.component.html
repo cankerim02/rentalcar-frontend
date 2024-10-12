@@ -3,22 +3,31 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Id</th>
+
         <th>Araba</th>
-        <th>Rengi</th>
-        <th>Markası</th>
-        <th>Modeli</th>
-        <th>Günlük Fiyatı</th>
+        <th>Renk</th>
+        <th>Marka</th>
+        <th>Model</th>
+        <th>Günlük Fiyat</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let car of cars">
-        <td>{{ car.carId }}</td>
+
         <td>{{ car.carName }}</td>
-        <td>{{ car.colourName }}</td>
-        <td>{{ car.brandName }}</td>
+        <td>{{ car.colourId }}</td>
+        <td>{{ car.brandId }}</td>
         <td>{{ car.modelYear }}</td>
         <td>{{ car.dailyPrice }}</td>
+        <td>
+          <button
+            routerLink="/cars/carDetail/{{ car.carId }}"
+            type="button"
+            class="btn btn-success"
+          >
+            Araç Detay
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>

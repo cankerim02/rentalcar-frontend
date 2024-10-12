@@ -1,7 +1,7 @@
 <h5>Markalar</h5>
 <ul class="list-group">
   <li
-  [class]="getAllBrandClass()" routerLink="/cars">Tüm ürünler</li>
+  [class]="getAllBrandClass()" routerLink="/cars">Tüm Markalar</li>
   <li
     (click)="setCurrentBrand(brand)"
     routerLink="/cars/brand/{{brand.brandId}}"
@@ -10,4 +10,6 @@
     {{ brand.brandName }}
   </li>
 </ul>
-<h5 *ngIf="currentBrand">{{ currentBrand.brandName }} seçtiniz.</h5>
+<span *ngIf="currentBrand" class="badge bg-success">
+  <b>Seçtiğiniz Kategori : </b>
+  {{ currentBrand.brandName }}</span>

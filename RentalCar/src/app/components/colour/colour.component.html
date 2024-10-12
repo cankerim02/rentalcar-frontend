@@ -1,10 +1,10 @@
 <h5>Renkler</h5>
 <ul class="list-group">
   <li
-  [class]="getAllColourClass()" routerLink="/cars">Tüm ürünler</li>
+  [class]="getAllColourClass()" routerLink="/cars">Tüm Renkler</li>
   <li
   (click)="setCurrentColour(colour)"
-  routerLink="/cars/color/{{colour.colourId}}"
+  routerLink="/cars/colour/{{colour.colourId}}"
   *ngFor="let colour of colours"
   class="list-group-item"
   [class]="getCurrentColourClass(colour)">
@@ -12,4 +12,5 @@
     {{colour.colourName}}
   </li>
 </ul>
-<h5 *ngIf="currentColour">{{ currentColour.colourName }} seçtiniz.</h5>
+<span *ngIf="currentColour" class="badge bg-success">
+  <b>Seçtiğiniz Kategori : </b>{{ currentColour.colourName }}</span>

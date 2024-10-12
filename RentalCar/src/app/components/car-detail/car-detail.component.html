@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Araba Detay Bilgisi</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Araba</th>
+        <th>Renk</th>
+        <th>Marka</th>
+        <th>Model</th>
+        <th>Günlük Fiyat</th>
+        <th>Açıklaması</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cardetail of carDetails">
+        <td>{{ cardetail.carName }}</td>
+        <td>{{ cardetail.colourName }}</td>
+        <td>{{ cardetail.brandName }}</td>
+        <td>{{ cardetail.modelYear }}</td>
+        <td>{{ cardetail.dailyPrice }}</td>
+        <td>{{ cardetail.descriptions }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
