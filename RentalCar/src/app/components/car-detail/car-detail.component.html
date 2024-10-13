@@ -1,25 +1,62 @@
-<div class="container">
-  <h1>Araba Detay Bilgisi</h1>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Araba</th>
-        <th>Renk</th>
-        <th>Marka</th>
-        <th>Model</th>
-        <th>Günlük Fiyat</th>
-        <th>Açıklaması</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let cardetail of carDetails">
-        <td>{{ cardetail.carName }}</td>
-        <td>{{ cardetail.colourName }}</td>
-        <td>{{ cardetail.brandName }}</td>
-        <td>{{ cardetail.modelYear }}</td>
-        <td>{{ cardetail.dailyPrice }}</td>
-        <td>{{ cardetail.descriptions }}</td>
-      </tr>
-    </tbody>
-  </table>
+
+
+ <div class="row">
+  <div class="card mb-3" *ngFor="let cardetail of carDetails">
+    <!-- Carousel -->
+    <div id="carouselExampleSlidesOnly" class="carousel slide">
+      <div class="carousel-inner">
+        <!-- Resmi cardetail.imagePath'ten alıyoruz -->
+        <div class="carousel-item active">
+          <img
+            *ngIf="cardetail.imagePath"
+            [src]="baseUrl + cardetail.imagePath"
+            class="card-img-top"
+            style="object-fit:cover"
+            width="100"
+            height="250px"
+            alt="Araba Resmi"
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Araba Detay Bilgileri -->
+    <div class="container">
+      <h1>Araba Detay Bilgisi</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Resim</th>
+            <th>Araba</th>
+            <th>Renk</th>
+            <th>Marka</th>
+            <th>Model</th>
+            <th>Günlük Fiyat</th>
+            <th>Açıklaması</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <!-- Resim Path'i -->
+            <td>
+              <img
+                *ngIf="cardetail.imagePath"
+                [src]="baseUrl + cardetail.imagePath"
+                alt="{{cardetail.carName}} resmi"
+                width="100"
+                height="60"
+              >
+            </td>
+            <td>{{ cardetail.carName }}</td>
+            <td>{{ cardetail.colourName }}</td>
+            <td>{{ cardetail.brandName }}</td>
+            <td>{{ cardetail.modelYear }}</td>
+            <td>{{ cardetail.dailyPrice }}</td>
+            <td>{{ cardetail.descriptions }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
+

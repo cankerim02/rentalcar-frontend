@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CarDetail } from '../../models/car-detail';
 import { ActivatedRoute } from '@angular/router';
 import { CarService } from '../../services/car.service';
+import { CarImage } from '../../models/carImage';
+import { CarImageService } from '../../services/carimage.service';
 
 @Component({
   selector: 'app-car-detail',
@@ -10,9 +12,12 @@ import { CarService } from '../../services/car.service';
 })
 export class CarDetailComponent implements OnInit {
   carDetails: CarDetail[] = [];
+  carImageDetail:CarImage[]=[]
+  baseUrl = "https://localhost:44384/Upload/Images/"
 
   constructor(
     private carService: CarService,
+    private carImageService: CarImageService,
     private activatedRoute: ActivatedRoute
   ) {}
 
@@ -20,9 +25,16 @@ export class CarDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe((params)=>{
       if(params["carId"]){
         this.getCarDetailsCarId(params["carId"])
+        this.getCarImagesByCarId(params["carId"])
       }else {
         return;
       }
+
+      //* image path yolumu kontrol ettim
+      // console.log('Base URL:', this.baseUrl);
+      // this.carDetails.forEach(carDetail => {
+      //   console.log('Car Image URL:', this.baseUrl + carDetail.imagePath);
+      // });
     })
   }
   // getCarsDetails() {
@@ -34,5 +46,15 @@ export class CarDetailComponent implements OnInit {
     this.carService.getCarDetailsCarId(carId).subscribe((response) => {
       this.carDetails = response.data;
     });
+  }
+  getCarImage(){
+    this.carImageService.getCarImage().subscribe((response)=>{
+      this.carImageDetail = response.data
+    })
+  }
+  getCarImagesByCarId(imageCarId:number){
+    this.carImageService.getCarImagesByCarId(imageCarId).subscribe((response)=>{
+      this.carImageDetail = response.data
+    })
   }
 }

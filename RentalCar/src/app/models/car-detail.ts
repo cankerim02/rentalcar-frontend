@@ -5,5 +5,6 @@ colourName:string,
 brandName:string,
 modelYear:number,
 dailyPrice:number,
-descriptions:string
+descriptions:string,
+imagePath:string
 }
