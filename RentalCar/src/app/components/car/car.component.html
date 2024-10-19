@@ -4,18 +4,20 @@
   </div>
   <h1>Arabalar</h1>
   <div class="mb-3">
-    <label for="filterText" class="form-label">Araç ara</label>
+    <label for="filterText" class="form-label"></label>
     <input
       type="text"
       class="form-control"
       id="filterText"
-      placeholder="Arama metni giriniz."
+      placeholder="Araç, renk ve marka giriniz.."
       [(ngModel)]="filterText"
     />
   </div>
   <div *ngIf="filterText.length>2" class ="alert alert-success">
     {{filterText}} aradiniz.
   </div>
+
+  <app-car-filter></app-car-filter>
 
   <table *ngIf="dataLoaded==true" class="table">
     <thead>

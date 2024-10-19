@@ -1,0 +1,25 @@
+<div class="container" style="margin-top: 1cm;"> <!-- *ngIf="isDataLoaded==true" filtreyi göstersin diye kaldırdım bunu -->
+  <div class="row">
+
+      <div class="col">
+          <label for="brandFilter" class="form-label">Markalar</label>
+          <select class="form-select" id="brandFilter" aria-label="Default select example"
+          [(ngModel)]="selectedBrandId">
+              <option *ngFor="let brand of brands" value="{{brand.brandId}}">{{brand.brandName}}</option>
+          </select>
+      </div>
+
+      <div class="col">
+          <label for="colourFilter" class="form-label">Renkler</label>
+          <select class="form-select" id="colourFilter" aria-label="Default select example"
+          [(ngModel)]="selectedColourId">
+              <option *ngFor="let colour of colours" value="{{colour.colourId}}">{{colour.colourName}}</option>
+          </select>
+      </div>
+
+      <div class="col" style="margin-top: 0.8cm;">
+        <button type="submit" [class]="changeButtonClass()" [routerLink]="changeRouterLink()">Filtrele</button>
+        <button type="submit" class="btn btn-success" routerLink="/cars" style="margin-left: 10%;">Temizle </button>
+      </div>
+  </div>
+</div>

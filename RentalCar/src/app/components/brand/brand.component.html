@@ -1,15 +1,17 @@
-<h5>Markalar</h5>
+<div class="mb-3">
+  <br>
+  <input type="text" class="form-control" id="filterText" placeholder="Marka arayınız."[(ngModel)]="filterBrandText"/>
+</div>
+<div *ngIf="filterBrandText.length>2" class ="alert alert-success">
+  {{filterBrandText}} aradiniz.
+</div>
 <ul class="list-group">
-  <li
-  [class]="getAllBrandClass()" routerLink="/cars">Tüm Markalar</li>
-  <li
-    (click)="setCurrentBrand(brand)"
-    routerLink="/cars/brand/{{brand.brandId}}"
-    *ngFor="let brand of brands"
-    [class]="getCurrentBrandClass(brand)">
-    {{ brand.brandName }}
+  <li [class]="getAllBrandClass()" (click)="setCurrentBrandReset()" routerLink="/cars">Tüm Markalar</li>
+  <li (click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.brandId}}" *ngFor="let brand of brands | brandFilter:filterBrandText"
+  [class]="getCurrentBrandClass(brand)">{{ brand.brandName }}
   </li>
 </ul>
+
 <span *ngIf="currentBrand" class="badge bg-success">
   <b>Seçtiğiniz Kategori : </b>
   {{ currentBrand.brandName }}</span>

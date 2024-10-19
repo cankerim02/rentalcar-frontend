@@ -10,7 +10,8 @@ import { BrandService } from '../../services/brand.service';
 })
 export class BrandComponent implements OnInit {
   brands: Brand[] = [];
-  currentBrand:Brand;
+  currentBrand:Brand | null;
+  filterBrandText="";
 
 
   ngOnInit(): void {
@@ -27,6 +28,9 @@ export class BrandComponent implements OnInit {
   }
   setCurrentBrand(brand:Brand){
     this.currentBrand = brand;
+  }
+  setCurrentBrandReset(){
+    this.currentBrand = null;
   }
   getCurrentBrandClass(brand:Brand){
    if(brand == this.currentBrand){

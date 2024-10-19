@@ -11,7 +11,8 @@ import { ColourService } from '../../services/colour.service';
 })
 export class ColourComponent implements OnInit {
   colours: Colour[] = [];
-  currentColour:Colour;
+  currentColour:Colour | null;
+  filterColourText="";
 
   ngOnInit(): void {
     this.getColours();
@@ -26,6 +27,10 @@ export class ColourComponent implements OnInit {
   }
   setCurrentColour(colour:Colour){
     this.currentColour = colour;
+  }
+
+  setCurrentColourReset(){
+    this.currentColour = null;
   }
 
   getAllColourClass(){

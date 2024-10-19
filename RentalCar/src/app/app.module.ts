@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CarFilterPipe } from './components/pipe/car.filter.pipe';
 import { CarImageComponent } from './components/car-image/car-image.component';
+import { BrandFilterPipe } from './components/pipe/brand.filter.pipe';
+import { ColourFilterPipe } from './components/pipe/colour.filter.pipe';
+import { CarFilterComponent } from './components/car-filter/car-filter.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { CarImageComponent } from './components/car-image/car-image.component';
     NavComponent,
     CarDetailComponent,
     CarFilterPipe,
-    CarImageComponent
+    BrandFilterPipe,
+    ColourFilterPipe,
+    CarImageComponent,
+    CarFilterComponent
   ],
   imports: [
     BrowserModule,
