@@ -43,7 +43,7 @@ export class CarFilterComponent implements OnInit{
     })
   }
   changeButtonClass(){
-    if(this.selectedBrandId || this.colourFilter)
+    if(this.selectedBrandId || this.selectedColourId)
     {
       return "btn btn-success"
     }else {
