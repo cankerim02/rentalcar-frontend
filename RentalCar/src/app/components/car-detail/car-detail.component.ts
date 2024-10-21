@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { CarService } from '../../services/car.service';
 import { CarImage } from '../../models/carImage';
 import { CarImageService } from '../../services/carimage.service';
+import { ToastrService } from 'ngx-toastr';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-car-detail',
@@ -18,7 +20,9 @@ export class CarDetailComponent implements OnInit {
   constructor(
     private carService: CarService,
     private carImageService: CarImageService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private toastrService:ToastrService,
+    private cartService:CartService
   ) {}
 
   ngOnInit(): void {
@@ -57,4 +61,15 @@ export class CarDetailComponent implements OnInit {
       this.carImageDetail = response.data
     })
   }
+
+  addToCart(carDetail:CarDetail){
+    if(carDetail.carId == 1)
+    {
+      this.toastrService.error("Hata","Bu araç sepete eklenemez")
+    }else {
+      console.log(carDetail)
+      this.toastrService.success("Sepete eklendi",carDetail.carName)
+      this.cartService.addToCart(carDetail);
+    }
+    }
 }
