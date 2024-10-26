@@ -19,6 +19,7 @@ import { CarFilterComponent } from './components/car-filter/car-filter.component
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { VatAddedPipe } from './components/pipe/vat-added.pipe';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CarFilterPipe,
     BrandFilterPipe,
     ColourFilterPipe,
+    VatAddedPipe,
     CarImageComponent,
     CarFilterComponent,
     CartSummaryComponent

@@ -6,6 +6,7 @@ import { CarImage } from '../../models/carImage';
 import { CarImageService } from '../../services/carimage.service';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../../services/cart.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-car-detail',
@@ -16,6 +17,10 @@ export class CarDetailComponent implements OnInit {
   carDetails: CarDetail[] = [];
   carImageDetail:CarImage[]=[]
   baseUrl = "https://localhost:44384/Upload/Images/"
+  rentalMessage: string = "";
+  rentalDate:Date;
+  returnDate:Date;
+  rentalAddForm:FormGroup
 
   constructor(
     private carService: CarService,
@@ -63,12 +68,12 @@ export class CarDetailComponent implements OnInit {
   }
 
   addToCart(carDetail:CarDetail){
-    if(carDetail.carId == 1)
+    if(carDetail.carId == 5)
     {
-      this.toastrService.error("Hata","Bu araç sepete eklenemez")
+      this.toastrService.error("Araç sepete eklenemedi","Araç başkası tarafından kiralanmış durumdadır.")
     }else {
       console.log(carDetail)
-      this.toastrService.success("Sepete eklendi",carDetail.carName)
+      this.toastrService.success(" Araç Sepete eklendi",carDetail.brandName+" "+carDetail.carName)
       this.cartService.addToCart(carDetail);
     }
     }
