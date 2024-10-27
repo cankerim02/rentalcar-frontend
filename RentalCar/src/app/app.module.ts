@@ -20,6 +20,7 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VatAddedPipe } from './components/pipe/vat-added.pipe';
+import { RentalComponent } from './components/rental/rental.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { VatAddedPipe } from './components/pipe/vat-added.pipe';
     BrandComponent,
     NavComponent,
     CarDetailComponent,
+    RentalComponent,
     CarFilterPipe,
     BrandFilterPipe,
     ColourFilterPipe,
